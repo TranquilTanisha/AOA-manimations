@@ -16,7 +16,7 @@ class QuickSort(Scene):
     tab1=MathTable([a], include_outer_lines=True).scale(0.7).next_to(s, DOWN*3)
     tab2=MathTable([a], include_outer_lines=True).scale(0.7).next_to(tab1, DOWN*4)
     def construct(self):
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
 
         self.play(Write(self.s), run_time=2)
@@ -51,7 +51,7 @@ class QuickSort(Scene):
         self.tab2.get_rows()[0].set_color(GOLD_B)
         self.wait(3)
         self.clear()
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
         t=Text("Thank you!", color=BLUE).scale(1.2)
         self.play(Write(t), run_time=1)

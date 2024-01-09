@@ -8,7 +8,7 @@ class Mergesort(Scene):
     tab=MathTable([a], include_outer_lines=True).scale(0.7)
 
     def construct(self):
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
 
         s=Title(f"Merge Sort", color=TEAL_B).scale(1.2)
@@ -19,6 +19,7 @@ class Mergesort(Scene):
         tab1=MathTable([a], include_outer_lines=True).scale(0.7).next_to(s, DOWN*4)
 
         self.play(Create(tab1), run_time=2)
+        # self.wait(1)
 
         sq1=Text("m", color=PURPLE_B).scale(0.5)
         sq2=Text("l", color=PURPLE_B).scale(0.5).next_to(tab1.get_rows()[0][0], UP*2)
@@ -29,7 +30,7 @@ class Mergesort(Scene):
 
         self.wait(3)
         self.clear()
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
         t=Text("Thank you!", color=BLUE).scale(1.2)
         self.play(Write(t), run_time=1)

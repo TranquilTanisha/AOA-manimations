@@ -10,7 +10,7 @@ def take_input(n,v,cost):
 
 class GenerateGraph(Scene):
     def construct(self):
-        tan=Text("LinkedIn: tanisha-kaur \nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur \nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
 
         s=Title(f"Construct Graph", color=TEAL_B).scale(1.2)
@@ -23,8 +23,10 @@ class GenerateGraph(Scene):
         v=take_input(n,v,cost)
 
         mat=IntegerMatrix(cost).scale(0.7).shift(LEFT*4)
+        # z=Text("A = ", color=BLUE).scale(0.6).next_to(mat, LEFT)
         sq=Square(side_length=0.7, color=TEAL_B).scale(0.6).move_to(mat.get_rows()[0][0])
 
+        # self.play(FadeIn(z), run_time=0.5)
         self.play(FadeIn(mat), run_time=1)
         self.wait(1)
         
@@ -102,7 +104,7 @@ class GenerateGraph(Scene):
         self.play(FadeOut(sq))
         self.wait(3)
         self.clear()
-        tan=Text("LinkedIn: tanisha-kaur \nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur \nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
         t=Text("Than you!", color=BLUE)
         self.play(Write(t), run_time=1)

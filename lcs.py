@@ -11,7 +11,7 @@ def check(a,b):
 
 class Lcs(Scene):
     def construct(self):
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
 
         s=Title(f"Longest Common Subsequence (LCS)", color=TEAL_B).scale(1.2)
@@ -44,7 +44,7 @@ class Lcs(Scene):
         # self.lcs(a,b,m,n,s)
         # self.play(FadeOut(case), run_time=1)
         self.clear()
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
         t=Text("Thank you!", color=BLUE).scale(1.2)
         self.play(Write(t), run_time=1)
@@ -68,6 +68,7 @@ class Lcs(Scene):
 
         sq=Square(side_length=0.8, color=ORANGE).scale(0.5).move_to(tab.get_rows()[2][2])
         self.play(Create(sq), run_time=1)
+        # self.wait(1)
 
         for i in range(1, m+1):
             for j in range(1,n+1):
@@ -122,6 +123,7 @@ class Lcs(Scene):
                 tab1.get_columns()[1].set_color(GREY_C)
                 self.play(ReplacementTransform(tab, tab1), run_time=1)
                 tab=tab1
+                # self.wait(1)
         
         self.play(FadeOut(sq), run_time=1)
         self.print_lcs(a,k, m, n, sq, tab)

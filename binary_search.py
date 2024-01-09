@@ -12,7 +12,7 @@ class Binary_search(Scene):
     sq3=Text("m", color=PURPLE_B).scale(0.5).next_to(tab.get_rows()[0][math.ceil((len(l)-1)/2)], DOWN*2)
 
     def construct(self):
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
 
         s=Title(f"Binary Search", color=TEAL_B).scale(1.2)
@@ -45,7 +45,7 @@ class Binary_search(Scene):
 
         self.wait(3)
         self.clear()
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
         t=Text("Thank you!", color=BLUE).scale(1.2)
         self.play(Write(t), run_time=1)

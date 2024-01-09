@@ -14,7 +14,7 @@ def take_input(n,v,a):
  
 class Apsp(Scene):
     def construct(self):
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
 
         s=Title(f"Floyd Warshall Algorithm", color=TEAL_B).scale(1.2)
@@ -53,18 +53,21 @@ class Apsp(Scene):
         g2=VGroup(c2,b)
         c=Text("To vertex").scale(0.5).next_to(c3, RIGHT)
         g3=VGroup(c3,c)
+        g=VGroup(t,g1,g2,g3)
 
-        self.play(Write(t), run_time=1)
-        self.play(FadeIn(g1), run_time=1)
-        self.play(FadeIn(g2), run_time=1)
-        self.play(FadeIn(g3), run_time=1)
+        # self.play(Write(t), run_time=1)
+        # self.play(FadeIn(g1), run_time=1)
+        # self.play(FadeIn(g2), run_time=1)
+        # self.play(FadeIn(g3), run_time=1)
+        self.play(FadeIn(g), run_time=1)
         self.wait(3)
-        self.play(FadeOut(t), FadeOut(g1), FadeOut(g2), FadeOut(g3), run_time=1)
+        # self.play(FadeOut(t), FadeOut(g1), FadeOut(g2), FadeOut(g3), run_time=1)
 
         # show matrix
         mat=IntegerMatrix(a, left_bracket="[", right_bracket="]", v_buff=0.8, h_buff=1.5, color=GREY_A).shift(RIGHT*3).scale(0.6)
         eq=Tex("=", color=GREY_A).next_to(mat, LEFT).scale(0.7)
         t=Text("A0", color=GREY_A).next_to(eq, LEFT).scale(0.65)
+        self.play(g.animate.scale(0.5).next_to(mat, RIGHT), Write(t), Write(eq), Create(mat), run_time=1)
 
         c1=Circle(radius=0.3, color=YELLOW) #via which vertex
         c11=Circle(radius=0.2, color=BLUE) #direct text
@@ -74,8 +77,8 @@ class Apsp(Scene):
         c33=Circle(radius=0.2, color=BLUE)
         sq=Square(side_length=0.5, color=GREEN).move_to(mat.get_rows()[0][0])
 
-        self.play(FadeIn(t), FadeIn(eq), run_time=1)
-        self.play(Create(mat), run_time=1)
+        # self.play(FadeIn(t), FadeIn(eq), run_time=1)
+        # self.play(Create(mat), run_time=1)
         self.wait(2)
         self.play(Create(sq), FadeOut(t))
 
@@ -110,23 +113,10 @@ class Apsp(Scene):
                     self.play(sq.animate.move_to(mat.get_rows()[i][j]), run_time=1) 
                     
                     if i==k or j==k or i==j:
-                        pass
+                        continue
 
                     else:                 
                         c3.move_to(p[j])  
-  
-                        if j!=k:
-                            self.play(FadeIn(c3), run_time=1)   
-                            if i!=k:
-                                if a[i][j]==999:          
-                                    t2=Tex("$\\infty$").scale(0.7).next_to(t1, RIGHT)     
-                                else:
-                                    t2=Tex(a[i][j]).scale(0.7).next_to(t1, RIGHT) 
-                                if a[i][k]==999 or a[k][j]==999:
-                                    t3=Tex("$\\infty$").scale(0.7).next_to(t2, RIGHT*2)
-                                else:
-                                    t3=Tex(a[i][k]+a[k][j]).scale(0.7).next_to(t2, RIGHT*2)
-                                self.play(FadeIn(t2), FadeIn(t3), run_time=1)
 
                         if (a[i][j]!=0 and a[i][j]!=999) or (a[i][k]!=0 and a[i][k]!=999 and a[k][j]!=0 and a[k][j]!=999):
 
@@ -160,12 +150,26 @@ class Apsp(Scene):
                                     self.play(Create(ar2), Create(c22), Create(c33), run_time=1)
                                     self.play(FadeOut(ar1), FadeOut(ar2),FadeOut(c22), FadeOut(c33), run_time=1)
 
+                        
+                        if j!=k:
+                            self.play(FadeIn(c3), run_time=1)   
+                            if i!=k:
+                                if a[i][j]==999:          
+                                    t2=Tex("$\\infty$").scale(0.7).next_to(t1, RIGHT)     
                                 else:
-                                    c22.move_to(mat.get_rows()[i][k])
-                                    c33.move_to(mat.get_rows()[k][j])
-                                    self.play(Create(c22), Create(c33), run_time=1)
-                                    self.play(FadeOut(c22), FadeOut(c33), run_time=1)
-
+                                    t2=Tex(a[i][j]).scale(0.7).next_to(t1, RIGHT) 
+                                if a[i][k]==999 or a[k][j]==999:
+                                    t3=Tex("$\\infty$").scale(0.7).next_to(t2, RIGHT*2)
+                                else:
+                                    t3=Tex(a[i][k]+a[k][j]).scale(0.7).next_to(t2, RIGHT*2)
+                                self.play(FadeIn(t2), FadeIn(t3), run_time=1)
+                        
+                        c22.move_to(mat.get_rows()[i][k])
+                        c33.move_to(mat.get_rows()[k][j])
+                        self.play(Create(c22), Create(c33), run_time=1)
+                        self.play(FadeOut(c22), FadeOut(c33), run_time=1)
+                        
+                        
                         if (a[i][j]!=999 or a[i][j]!=0) and a[i][j]<a[i][k]+a[k][j]:
                             self.play(Circumscribe(t2, shape=Rectangle, color=PURPLE_B, fade_out=True), run_time=1)
                         elif ((a[i][k]+a[k][j])!=0 or (a[i][k]+a[k][j]!=999)) and a[i][k]+a[k][j]<999:
@@ -191,7 +195,7 @@ class Apsp(Scene):
         self.play(FadeOut(eq), FadeOut(sq))
         self.wait(2)  
         self.clear()
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
         t=Text("Thank you!", color=BLUE).scale(1.2)
         self.play(Write(t), run_time=1)

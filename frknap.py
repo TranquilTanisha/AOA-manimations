@@ -1,5 +1,7 @@
 from manim import *
 
+t=0
+
 #tab-for profit and weight
 #tab1- replacement of tab
 #tab2- for ratio (p/w)
@@ -17,7 +19,7 @@ from manim import *
 
 class Fractional_Knapsack(Scene):
     def construct(self):
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
 
         s=Title(f"Fractional Knapsack Problem", color=TEAL_B).scale(1.2)
@@ -37,13 +39,18 @@ class Fractional_Knapsack(Scene):
         self.play(FadeIn(t1), run_time=1)
 
         t=self.arrange(k, n)
+        # tab=MathTable(t, include_outer_lines=True).scale(0.5).next_to(s, DOWN*7.5+LEFT*2).to_edge(LEFT)
         tab=MathTable(t, include_outer_lines=True).scale(0.5).move_to(LEFT*4)
+        # t2.next_to(tab, UP)
 
         pw=self.weight_sort(k, n)
+        # tab2=MathTable(pw, include_outer_lines=True).scale(0.5).next_to(tab, RIGHT*4)
         tab2=MathTable(pw, include_outer_lines=True).scale(0.5).move_to(LEFT)
 
+        # self.play(FadeIn(t2), run_time=1)
         self.play(Create(tab), run_time=4)
         self.play(Create(tab2), run_time=2)
+        # self.play(FadeIn(gr), run_time=1)
         self.wait(2)   
 
         k.sort(reverse=True)
@@ -74,6 +81,7 @@ class Fractional_Knapsack(Scene):
 
         uu=[[0]]*(n+1)
         uu[0]=["Remaining(m-w)"]
+        # tab6=MathTable(uu, include_outer_lines=True).scale(0.5).next_to(tab2, RIGHT*10)
         tab6=MathTable(uu, include_outer_lines=True).scale(0.5).move_to(RIGHT*4)
         self.play(FadeIn(tab6), run_time=1)
         self.wait(1)
@@ -81,10 +89,13 @@ class Fractional_Knapsack(Scene):
         for i in range(n):
             print(i)
             self.play(Circumscribe(tab.get_rows()[i+1][1], shape=Rectangle, color=YELLOW, fade_out=True), run_time=2)
+            # b=k[i][2]<=u
+            # b=check(k[i][2], u)
             if k[i][2]<=u:
                 b="True"
             else:
                 b="False"
+            # t3=Text(str(k[i][2])+" <= "+str(u), color=BLUE).scale(0.5).next_to(tab, DOWN*2)
             t3=Text(str(k[i][2])+" <= "+str(u), t2c={" <=":BLUE}).scale(0.5).move_to(DOWN*2)
             t4=Text(b, color=GOLD).scale(0.5).next_to(t3, DOWN*0.5)
             self.play(FadeIn(t3), run_time=1)
@@ -167,7 +178,7 @@ class Fractional_Knapsack(Scene):
 
         self.wait(3)
         self.clear()
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
         t=Text("Thank you!", color=BLUE).scale(1.2)
         self.play(Write(t), run_time=1)

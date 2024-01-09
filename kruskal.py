@@ -24,8 +24,8 @@ def take_input(n):
 
 class Kruskal(Scene):
     def construct(self):
-        # tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
-        # self.add(tan)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        self.add(tan)
 
         s=Title(f"Kruskal's Algorithm", color=TEAL_B).scale(1.2)
         self.play(Write(s), run_time=2)
@@ -79,7 +79,7 @@ class Kruskal(Scene):
         self.kruskal(edges,n, min_c, cst, line,text,line1,text1)
         self.wait(3)
         self.clear()
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
         t=Text("Thank you!", color=BLUE).scale(1.2)
         self.play(Write(t), run_time=1)

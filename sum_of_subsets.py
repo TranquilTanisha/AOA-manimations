@@ -14,7 +14,7 @@ sum=0 #Sum of the weights added
 
 class Sum_of_Subsets(Scene):
     def construct(self):
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
 
         s=Title(f"Sum of Subsets", color=TEAL_B).scale(1.2)
@@ -41,7 +41,7 @@ class Sum_of_Subsets(Scene):
         self.play(Circumscribe(t), run_time=1)
         self.wait(2)
         self.clear()
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
         t=Text("Thank you!", color=BLUE).scale(1.2)
         self.play(Write(t), run_time=1)
@@ -70,6 +70,22 @@ class Sum_of_Subsets(Scene):
                 self.play(FadeOut(tab), FadeOut(t4), FadeOut(t7), run_time=1)
         else:
             x[i]=1
+            # tab=MathTable([x[:i]], include_outer_lines=True).scale(0.5)
+            # t4=Text("Sum = ", color=BLUE).scale(0.5).move_to(DOWN+LEFT)
+            # t5=""
+            # for i in range(len(x)):
+            #     if x[i]==1:
+            #         t5+=str(w[i])+" +"
+            # t6=Text(t5[:len(t5)-1]).scale(0.5).next_to(t4, RIGHT)
+
+            # self.play(FadeIn(tab), run_time=1)
+            # self.play(Write(t4), Write(t6), run_time=1)
+            # t7=Tex(m).scale(0.6).next_to(t4, RIGHT)
+            # self.wait(2)
+            # self.play(ReplacementTransform(t6,t7), run_time=1)
+            # self.wait(2)
+            # self.play(FadeOut(tab), FadeOut(t4), FadeOut(t7), run_time=1)
+            
             self.sum_of_subsets(i+1, sum+w[i], w, rem_sum-w[i])
             x[i]=0
             self.sum_of_subsets(i+1, sum, w, rem_sum-w[i])

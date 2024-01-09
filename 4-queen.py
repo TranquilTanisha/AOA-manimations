@@ -1,5 +1,6 @@
 from manim import *
 
+# n=int(input("Enter the number of queens: "))
 n=4
 x=[-1]*n #To store the final solution
 y=[] #To store in string
@@ -19,7 +20,7 @@ class Four_queens(Scene):
     tab.get_columns()[0].set_color(YELLOW)
 
     def construct(self):
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
 
         s=Title(f"4-Queens Problem", color=TEAL_B).scale(1.2)
@@ -51,7 +52,7 @@ class Four_queens(Scene):
         self.play(Create(table), run_time=2)
         self.wait(3)
         self.clear()
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
         t=Text("Thank you!", color=BLUE).scale(1.2)
         self.play(Write(t), run_time=1)

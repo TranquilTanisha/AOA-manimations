@@ -9,7 +9,7 @@ def check(key, l ,j):
 
 class InsertionSort(Scene):
     def construct(self):
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
 
         s=Title(f"Insertion Sort", color=TEAL_B).scale(1.2)
@@ -86,6 +86,8 @@ class InsertionSort(Scene):
                     self.play(FadeOut(sq2), run_time=1)
                 self.wait(1)
 
+            # self.play(FadeOut(sq2), run_time=1)
+
             l[j+1]=key
             tab3=MathTable([l], include_outer_lines=True).scale(0.7).next_to(tab1, DOWN*4)
             self.play(FadeOut(b1), k.animate.move_to(tab3.get_rows()[0][j+1].get_center()), ReplacementTransform(tab2, tab3), run_time=1)
@@ -98,7 +100,7 @@ class InsertionSort(Scene):
         self.play(FadeOut(sign), FadeOut(s2), FadeOut(kk), run_time=1)     
         self.wait(3)
         self.clear()
-        tan=Text("LinkedIn: tanisha-kaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
+        tan=Text("LinkedIn: tanishakaur\nGithub: TranquilTanisha", color=GREY_B).scale(0.3).to_corner(DR)
         self.add(tan)
         t=Text("Thank you!", color=BLUE).scale(1.2)
         self.play(Write(t), run_time=1)
